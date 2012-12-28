@@ -1,0 +1,31 @@
+body {
+	color: #333;
+}
+
+table.base {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.cantonPerYear {
+	height: 1300px;
+}
+
+.pie {
+	height: 600px;
+	width: 960px;
+}
+
+.heading {	
+	text-shadow: 3px 3px 3px #666;
+}
+
+dl {
+	margin: 0;
+}
+
+.widget {
+	padding: 15px;
+	box-shadow: #ccc 0 0 6px;
+	margin: 15px 0 30px;
+}

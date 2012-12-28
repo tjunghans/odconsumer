@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OGD-Konsument</title>
+  <link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="css/main.css" media="all" rel="stylesheet" type="text/css" />
+ 
+</head>
+<body>
+	<div class="container">
+   
+		
+		<div class="row header">
+			<header class="span12">
+				<h1 class="base heading">Diebstähle in der Schweiz &ndash; 2009 bis 2011</h1>
+	          	<p class="base">Open Government Data - Beispielanwendung mit Daten aus der <a href="http://www.pxweb.bfs.admin.ch/Dialog/statfile.asp?lang=1&prod=19">STAT-TAB-Datenbank, des Bundesamtes für Statistik, Schweiz</a>.</p>        
+	          	<p class="base">Verantwortlich für diese Webseite: Thomas Junghans</p>
+      		</header>
+	    </div>
+    
+
+
+		<div class="row body">
+			
+			<div class="span12">
+
+	
+				<div class="mod modDataVisual" data-source="test-data/px-d-19-3B01c-OPTIMIZED.json" data-sourcemeta="http://localhost:3000/odsets/1.json">
+					<div class="bd"></div>		
+
+					<h2>Metadaten</h2>
+					<div class="widget source-meta">
+
+					</div>
+
+					<div class="widget">
+
+					<dl>
+						<dt>Beitragsleitende</dt>
+						<dd><a href="http://www.bfs.admin.ch">Bundesamt für Statistik</a></dd>
+						
+						<dt>Abdeckung<dt>
+						<dd>Schweiz</dd>
+
+						<dt>Ersteller</dt>
+						<dd><a href="http://www.bfs.admin.ch/bfs/portal/de/index/infothek/erhebungen__quellen/blank/blank/pks/01.html">Polizeiliche Kriminalstatistik (PKS)</a><dd>
+						
+						<dt>Datum</dt>
+						<dd>13.02.2012</dd>
+						
+						<dt>Beschreibung</dt>
+						<dd>-</dd>
+
+						<dt>Format</dt>
+						<dd>application/json</dd>
+
+						<dt>Herausgeber</dt>
+						<dd><a href="http://www.bfs.admin.ch">Bundesamt für Statistik</a></dd>				
+						<dt>Identifikation</dt>
+						<dd>1</dd>
+
+						<dt>Quelle</dt>
+						<dd><a href="http://www.pxweb.bfs.admin.ch/Dialog/info.asp?File=px-d-19-3B01.px&path=../Database/German_19%20-%20Kriminalit%E4t%20und%20Strafrecht/19.3%20-%20Kriminalit%E4t%20und%20Strafvollzug/&ti=Polizeilich+registrierte+Straftaten+gem%E4ss+Strafgesetzbuch%2C+nach+Kantonen%2C+Form+und+Aufkl%E4rung&lang=1&ansi=1&multilang=">Bundesamt für Statistik - STAT-TAB</a></dd>	
+
+						<dt>Rechte</dt>
+						<dd>n/a</dd>
+
+						<dt>Sprache</dt>
+						<dd>DE</dd>
+
+						<dt>Thema</dt>
+						<dd>19 - Kriminalität und Strafrecht</dd>
+
+						<dt>Titel</dt>
+						<dd>Polizeilich registrierte Straftaten gemäss Strafgesetzbuch, nach Kantonen, Form und Aufklärung</dd>
+
+						
+					</dl>
+					
+					</div>
+
+					<h2>Diebstähle schweizweit pro Jahr</h2>
+					<section class="total" data-title="Diebstähle schweizweit pro Jahr">
+
+					</section>
+
+					<h2>Diebstähle im Kanton pro Jahr</h2>
+					<section class="cantonPerYear" data-title="Diebstähle im Kanton pro Jahr">
+
+					</section>
+
+					<h2>Diebstähle 2009 pro Kanton</h2>
+					<section class="pie perCanton2009" data-title="Diebstähle 2009 pro Kanton">
+
+					</section>
+
+					<h2>Daten</h2>
+					<section class="originalData">
+
+					</section>
+
+
+					<script type="text/html" class="tmpl-datatable">
+					<table>
+					<% var h = data[0]; %>
+					<tr>
+						<th><%= h[0] %></th> 
+						<th><%= h[1] %></th> 
+						<th><%= h[2] %></th> 
+						<th><%= h[3] %></th> 
+					</tr>
+
+					<%  for (var i = 1, ii = data.length; i < ii; i++) { 
+							var d = data[i];
+					%> 
+
+						<tr>
+							<td><%= d[0] %></td> 
+							<td><%= d[1] %></td> 
+							<td><%= d[2] %></td> 
+							<td><%= d[3] %></td> 
+						</tr>
+
+					<% } %>
+					</table>
+					</script>	
+
+
+					<script type="text/html" class="tmpl-totals">
+					<table class="base totals">
+					
+					<tr>
+						<th>Jahr</th> 
+						<th>Diebstähle Total</th> 
+					</tr>
+
+					<%  for (var i = 0, ii = data.length; i < ii; i++) { 
+							var d = data[i];
+					%> 
+
+						<tr>
+							<td><%= d.year %></td> 
+							<td><%= d.thefts %></td> 
+						
+						</tr>
+
+					<% } %>
+					</table>
+					</script>
+
+					<script type="text/html" class="tmpl-byYearAndCanton">
+					<table class="base totals">
+					<tr>
+						<th></th>
+					<%  for (var i = 0, ii = cantons.length; i < ii; i++) { 
+					%> 
+							<th><%= cantons[i] %></th>
+					
+					<% } %>	
+					</tr>
+
+					<%  for (var i = 0, ii = years.length; i < ii; i++) { 
+					%> 
+							<tr><th><%= years[i] %></th>
+
+							<%  for (var j = 0, jj = cantons.length; j < jj; j++) { 
+					%> 
+							<td><%= byCanton[cantons[j]][i].total %></td>
+					<% } %>
+
+							</tr>
+					
+					<% } %>	
+
+
+					
+					</table>
+					</script>
+
+					<script type="text/html" class="tmpl-sourceMeta">
+
+						<dl>
+							<%  for (var metaItem in sourceMeta) { 	%> 
+							<dt><%= metaItem %></dt>
+							<dd><%= sourceMeta[metaItem] %></dd>
+							<% } %>
+						
+						</dl>
+					</script>
+
+				</div>	
+	
+			
+			</div>
+    	</div>
+					
+		<footer>
+	
+		</footer>
+	</div>
+<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="js/underscore-min.js" type="text/javascript"></script>
+<script src="js/terrific-2.0.1.min.js" type="text/javascript"></script>
+<script src="js/terrific-bootstrap.js" type="text/javascript"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/OGD.utils.js" type="text/javascript"></script>
+<script src="js/Tc.Module.DataVisual.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+
+
+
