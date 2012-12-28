@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OGD-Konsument</title>
-  <link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="css/main.less" media="all" rel="stylesheet/less" type="text/css" />
+	<meta charset='utf-8'>
+  	<title>OGD-Konsument</title>
+  	<link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+  	<link href="css/main.less" media="all" rel="stylesheet/less" type="text/css" />
  	<script type="text/javascript" src="js/less-1.3.1.min.js.css"></script>
 </head>
 <body>
@@ -23,7 +24,7 @@
 			<div class="span12">
 
 	
-				<div class="mod modDataVisual" data-source="test-data/px-d-19-3B01c-OPTIMIZED.json" data-sourcemeta="http://localhost:3000/odsets/1.json">
+				<div class="mod modDataVisual" data-source="http://localhost:3000/downloads/sendjsonp/1" data-sourcemeta="http://localhost:3000/odsets/1.json">
 					<div class="bd"></div>		
 
 					<h2 class="base">Metadaten</h2>
@@ -53,7 +54,7 @@
 
 
 					<script type="text/html" class="tmpl-datatable">
-					<table>
+					<table class="table table-striped">
 					<% var h = data[0]; %>
 					<tr>
 						<th><%= h[0] %></th> 

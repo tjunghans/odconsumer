@@ -47,13 +47,16 @@
                     mod.$ctx.find('div.source-meta').html(html);
                 }
             );
-         
+
+
 
             $.ajax({
-                url : mod.$ctx.data('source'),
-                dataType: 'json',
+                url : mod.$ctx.data('source') + '?callback=?',
+				contentType: "application/json; charset=utf-8",
+				dataType: 'json',
+
                 success : function (data) {
-                                      
+
                     
                     var html = _.template($('.tmpl-datatable', mod.$ctx).html(), {data : data});
                     
