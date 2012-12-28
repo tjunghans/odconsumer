@@ -38,7 +38,7 @@
             // Get sourcemeta
             mod.$ctx.find('div.source-meta').html('Loading&hellip;');
 
-            
+            // Load META data
             $.getJSON(
                 mod.$ctx.data('sourcemeta') + '?callback=?',
                 function (data) {
@@ -90,8 +90,7 @@
                             "thefts" : totalYear2009
                         }]
                     });
-                    
-             //       mod.$ctx.find('.bd').prepend(html_totals);
+
 
                     // Select Sum(Anzahl) Group By Jahr, Kanton
                     var yearCanton = OGD.utils.getSumOfColumnWithGroupBy(data, 3, []);
@@ -121,12 +120,12 @@
 
                     var cantonSorter = function (a, b) {
                         return ((a.canton < b.canton) ? -1 : ((a.canton > b.canton) ? 1 : 0));
-                    }
+                    };
  
-var byYear2009Sorted = byYear[2009].sort(cantonSorter);
-var year2009CantonTotal = _.zip(_.pluck(byYear2009Sorted, ['canton']), _.pluck(byYear2009Sorted, ['total']));
+					var byYear2009Sorted = byYear[2009].sort(cantonSorter);
+					var year2009CantonTotal = _.zip(_.pluck(byYear2009Sorted, ['canton']), _.pluck(byYear2009Sorted, ['total']));
 
-                                                                
+					// 1. Chart - Diebstähle schweizweit pro Jahr
                     var chart = new Highcharts.Chart({
                         chart: {
                             renderTo: $('.cantonPerYear', mod.$ctx)[0],
@@ -195,7 +194,7 @@ var year2009CantonTotal = _.zip(_.pluck(byYear2009Sorted, ['canton']), _.pluck(b
 
 
 
-                    // TOTALS
+                    // 2. Chart - Diebstähle im Kanton pro Jahr
                     var chart = new Highcharts.Chart({
                         chart: {
                             renderTo: $('.total', mod.$ctx)[0],
@@ -245,7 +244,7 @@ var year2009CantonTotal = _.zip(_.pluck(byYear2009Sorted, ['canton']), _.pluck(b
                         }]
                     });
 
-                    // Per Year By Canton 
+                    // 3. Chart - Diebstähle 2009 pro Kanton
                     var chart = new Highcharts.Chart({
                         chart: {
                             renderTo: $('.perCanton2009', mod.$ctx)[0],
@@ -282,15 +281,6 @@ var year2009CantonTotal = _.zip(_.pluck(byYear2009Sorted, ['canton']), _.pluck(b
 
 
             callback();
-        },
-
-        /**
-         * Hook function to trigger your events.
-         *
-         * @method after
-         * @return void
-         */
-        after: function() {
         }
     });
 })(Tc.$);

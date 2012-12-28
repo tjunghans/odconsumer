@@ -3,8 +3,8 @@
 <head>
   <title>OGD-Konsument</title>
   <link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="css/main.css" media="all" rel="stylesheet" type="text/css" />
- 
+  <link href="css/main.less" media="all" rel="stylesheet/less" type="text/css" />
+ 	<script type="text/javascript" src="js/less-1.3.1.min.js.css"></script>
 </head>
 <body>
 	<div class="container">
@@ -13,12 +13,10 @@
 		<div class="row header">
 			<header class="span12">
 				<h1 class="base heading">Diebstähle in der Schweiz &ndash; 2009 bis 2011</h1>
-	          	<p class="base">Open Government Data - Beispielanwendung mit Daten aus der <a href="http://www.pxweb.bfs.admin.ch/Dialog/statfile.asp?lang=1&prod=19">STAT-TAB-Datenbank, des Bundesamtes für Statistik, Schweiz</a>.</p>        
-	          	<p class="base">Verantwortlich für diese Webseite: Thomas Junghans</p>
+	          	<p class="base">Open Government Data - Beispielanwendung</p>
+
       		</header>
 	    </div>
-    
-
 
 		<div class="row body">
 			
@@ -28,73 +26,27 @@
 				<div class="mod modDataVisual" data-source="test-data/px-d-19-3B01c-OPTIMIZED.json" data-sourcemeta="http://localhost:3000/odsets/1.json">
 					<div class="bd"></div>		
 
-					<h2>Metadaten</h2>
+					<h2 class="base">Metadaten</h2>
 					<div class="widget source-meta">
 
 					</div>
 
-					<div class="widget">
-
-					<dl>
-						<dt>Beitragsleitende</dt>
-						<dd><a href="http://www.bfs.admin.ch">Bundesamt für Statistik</a></dd>
-						
-						<dt>Abdeckung<dt>
-						<dd>Schweiz</dd>
-
-						<dt>Ersteller</dt>
-						<dd><a href="http://www.bfs.admin.ch/bfs/portal/de/index/infothek/erhebungen__quellen/blank/blank/pks/01.html">Polizeiliche Kriminalstatistik (PKS)</a><dd>
-						
-						<dt>Datum</dt>
-						<dd>13.02.2012</dd>
-						
-						<dt>Beschreibung</dt>
-						<dd>-</dd>
-
-						<dt>Format</dt>
-						<dd>application/json</dd>
-
-						<dt>Herausgeber</dt>
-						<dd><a href="http://www.bfs.admin.ch">Bundesamt für Statistik</a></dd>				
-						<dt>Identifikation</dt>
-						<dd>1</dd>
-
-						<dt>Quelle</dt>
-						<dd><a href="http://www.pxweb.bfs.admin.ch/Dialog/info.asp?File=px-d-19-3B01.px&path=../Database/German_19%20-%20Kriminalit%E4t%20und%20Strafrecht/19.3%20-%20Kriminalit%E4t%20und%20Strafvollzug/&ti=Polizeilich+registrierte+Straftaten+gem%E4ss+Strafgesetzbuch%2C+nach+Kantonen%2C+Form+und+Aufkl%E4rung&lang=1&ansi=1&multilang=">Bundesamt für Statistik - STAT-TAB</a></dd>	
-
-						<dt>Rechte</dt>
-						<dd>n/a</dd>
-
-						<dt>Sprache</dt>
-						<dd>DE</dd>
-
-						<dt>Thema</dt>
-						<dd>19 - Kriminalität und Strafrecht</dd>
-
-						<dt>Titel</dt>
-						<dd>Polizeilich registrierte Straftaten gemäss Strafgesetzbuch, nach Kantonen, Form und Aufklärung</dd>
-
-						
-					</dl>
-					
-					</div>
-
-					<h2>Diebstähle schweizweit pro Jahr</h2>
+					<h2 class="base">Diebstähle schweizweit pro Jahr</h2>
 					<section class="total" data-title="Diebstähle schweizweit pro Jahr">
 
 					</section>
 
-					<h2>Diebstähle im Kanton pro Jahr</h2>
+					<h2 class="base">Diebstähle im Kanton pro Jahr</h2>
 					<section class="cantonPerYear" data-title="Diebstähle im Kanton pro Jahr">
 
 					</section>
 
-					<h2>Diebstähle 2009 pro Kanton</h2>
+					<h2 class="base">Diebstähle 2009 pro Kanton</h2>
 					<section class="pie perCanton2009" data-title="Diebstähle 2009 pro Kanton">
 
 					</section>
 
-					<h2>Daten</h2>
+					<h2 class="base">Daten</h2>
 					<section class="originalData">
 
 					</section>
@@ -178,14 +130,22 @@
 					</script>
 
 					<script type="text/html" class="tmpl-sourceMeta">
-
 						<dl>
-							<%  for (var metaItem in sourceMeta) { 	%> 
-							<dt><%= metaItem %></dt>
-							<dd><%= sourceMeta[metaItem] %></dd>
-							<% } %>
-						
+							<dt>Titel</dt>
+							<dd><%= sourceMeta.title %></dd>
+							<dt>Beschreibung</dt>
+							<dd><%= sourceMeta.description %></dd>
+							<dt>Abdeckung</dt>
+							<dd><%= sourceMeta.coverage %></dd>
+							<dt>Datum</dt>
+							<dd><%= sourceMeta.date %></dd>
+							<dt>Ersteller</dt>
+							<dd><%= sourceMeta.creator %></dd>
+							<dt>Quelle</dt>
+							<dd><%= sourceMeta.source %></dd>
 						</dl>
+
+
 					</script>
 
 				</div>	
