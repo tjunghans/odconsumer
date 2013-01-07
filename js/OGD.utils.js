@@ -84,13 +84,10 @@
 			var i = 1, 
 				ii = array.length,
 				row = null, 
-				result = 0;
-
-			var resultatObject = {},
-				resultArray = [];
-
-			var groups = [0,1];
-			var groupId = '';
+				result = 0,
+				resultatObject = {},
+				resultArray = [],
+				groupId = '';
 
 			for (; i < ii; i++) {
 				groupId = array[i][0] + ':' + array[i][1];
@@ -109,7 +106,7 @@
 
 			_.each(resultatObject, function (value, key, list) {
 				resultArray.push(value);	
-			})
+			});
 
 			return resultArray;
 		},

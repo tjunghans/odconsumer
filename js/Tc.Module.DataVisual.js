@@ -34,8 +34,7 @@
         on: function(callback) {
             var mod = this;
 
-
-            // Get sourcemeta
+            // Show loading message for meta data
             mod.$ctx.find('div.source-meta').html('Loading&hellip;');
 
             // Load META data
@@ -48,8 +47,7 @@
                 }
             );
 
-
-
+			// Load ACTUAL data
             $.ajax({
                 url : mod.$ctx.data('source') + '?callback=?',
 				contentType: "application/json; charset=utf-8",
@@ -79,25 +77,12 @@
              
               
 
-                    var html_totals = _.template($('.tmpl-totals', mod.$ctx).html(), {data : [
-                        {
-                            "year" : 2011,
-                            "thefts" : totalYear2011
-                        },
-                        {
-                            "year" : 2010,
-                            "thefts" : totalYear2010
-                        },
-                        {
-                            "year" : 2009,
-                            "thefts" : totalYear2009
-                        }]
-                    });
 
 
                     // Select Sum(Anzahl) Group By Jahr, Kanton
                     var yearCanton = OGD.utils.getSumOfColumnWithGroupBy(data, 3, []);
-                    console.dir(yearCanton);
+
+
 
                     var data2009 = _.where(yearCanton, { 'year' : '2009'});
                     var data2011 = _.where(yearCanton, { 'year' : '2010'});
